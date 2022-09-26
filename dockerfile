@@ -1,6 +1,9 @@
-FROM openjdk:8-jre
-RUN mkdir app
-ARG JAR_FILE
-ADD /target/${JAR_FILE} /app/parking-control-application.jar
+FROM eclipse-temurin:17-jdk-jammy
+
 WORKDIR /app
-ENTRYPOINT java -jar parking-control-application.jar
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+# RUN ./mvnw dependency:resolve
+COPY src ./src
+EXPOSE 8080
+CMD ["./mvnw", "spring-boot:run"]
