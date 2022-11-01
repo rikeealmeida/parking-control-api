@@ -22,12 +22,12 @@ services:
     networks:
       - postgres-compose-network
 
-  teste-api-compose:
-    image: rikeealmeida/parking-control-api
-    networks:
-      - postgres-compose-network
-    ports:
-    - "8080:8080"
+  # teste-api-compose:
+  #   image: rikeealmeida/parking-control-api
+  #   networks:
+  #     - postgres-compose-network
+  #   ports:
+  #   - "8080:8080"
     
 
 networks:
